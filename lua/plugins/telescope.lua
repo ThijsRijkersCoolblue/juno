@@ -25,6 +25,9 @@ return {
         selection_caret = " ❯ ",
         path_display    = { "truncate" },
         sorting_strategy = "ascending",
+        preview = {
+          treesitter = false,  -- disable ts previewer (ft_to_lang compat fix)
+        },
         layout_config = {
           horizontal = {
             prompt_position = "top",
