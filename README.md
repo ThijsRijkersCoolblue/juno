@@ -2,25 +2,13 @@
 
 My personal Neovim configuration with theme, fuzzy file search, and live grep — managed by [lazy.nvim](https://github.com/folke/lazy.nvim).
 
-## Requirements
+## Installation
 
 Before installing, make sure you have the following installed:
 
 - **Neovim** >= 0.9
 - **Git**
 - **Ripgrep** — used for live grep search inside files
-
-### Install Ripgrep
-
-| OS | Command |
-|---|---|
-| Windows | `winget install BurntSushi.ripgrep.MSVC` |
-| macOS | `brew install ripgrep` |
-| Linux | `sudo apt install ripgrep` |
-
----
-
-## Installation
 
 ### Windows (PowerShell)
 
@@ -59,45 +47,6 @@ rm -rf ~/.cache/nvim
 ```
 
 Then run the installation steps again.
-
----
-
-## Keybindings
-
-Space is the leader key.
-
-### Search
-| Key | Action |
-|---|---|
-| `Space sf` | Search files |
-| `Space sg` | Search text across project (grep) |
-| `Space sw` | Search word under cursor |
-| `Space sr` | Resume last search |
-| `Space sd` | Search diagnostics |
-| `Space sk` | Search keymaps |
-| `Space /` | Search text in current file |
-| `Space Space` | Browse open buffers |
-
-### Files
-| Key | Action |
-|---|---|
-| `Space e` | Toggle file explorer |
-| `:E` | Open file explorer at current file location |
-
-### Navigation
-| Key | Action |
-|---|---|
-| `Shift h` | Previous tab |
-| `Shift l` | Next tab |
-| `Ctrl h/j/k/l` | Move between splits |
-
-### Editing
-| Key | Action |
-|---|---|
-| `gcc` | Toggle line comment |
-| `gc` (visual) | Toggle comment on selection |
-| `Space w` | Save file |
-| `Space q` | Quit |
 
 ---
 
