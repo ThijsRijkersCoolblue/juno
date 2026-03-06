@@ -1,10 +1,15 @@
 -- Compatibility shim: ft_to_lang was removed in newer Neovim builds
--- This patches it back so telescope works correctly
-if vim.treesitter.language and not vim.treesitter.language.ft_to_lang then
-  vim.treesitter.language.ft_to_lang = function(ft)
-    return ft
-  end
-end
+-- Patch nvim-treesitter.parsers so telescope works correctly
+vim.api.nvim_create_autocmd("User", {
+  pattern = "LazyDone",
+  once = true,
+  callback = function()
+    local ok, ts_parsers = pcall(require, "nvim-treesitter.parsers")
+    if ok and not ts_parsers.ft_to_lang then
+      ts_parsers.ft_to_lang = function(ft) return ft end
+    end
+  end,
+})
 
 require("core.options")
 require("core.keymaps")
