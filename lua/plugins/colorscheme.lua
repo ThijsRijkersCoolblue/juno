@@ -1,19 +1,15 @@
 -- plugins/colorscheme.lua
 return {
-  "ellisonleao/gruvbox.nvim",
+  "sainnhe/everforest",
   lazy     = false,
   priority = 1000,
   config = function()
-    require("gruvbox").setup({
-      contrast      = "hard",  -- "hard" | "medium" | "soft"
-      transparent_mode = false,
-      italic = {
-        strings   = false,
-        comments  = true,
-        operators = false,
-        folds     = true,
-      },
-    })
-    vim.cmd("colorscheme gruvbox")
+    vim.g.everforest_background         = "medium"   -- "soft" | "medium" | "hard"
+    vim.g.everforest_better_performance = 1
+    vim.g.everforest_enable_italic      = 1
+    vim.g.everforest_diagnostic_text_highlight = 1
+    vim.g.everforest_sign_column_background    = "none"
+    vim.opt.background = "dark"
+    vim.cmd("colorscheme everforest")
   end,
 }
