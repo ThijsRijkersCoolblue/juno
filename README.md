@@ -2,8 +2,6 @@
 
 My personal Neovim configuration with theme, fuzzy file search, and live grep, managed by [lazy.nvim](https://github.com/folke/lazy.nvim).
 
-<img src="etc/ui.png" alt="uiimage" width="450"/>
-
 ## Installation
 
 Before installing, make sure you have the following installed:
@@ -51,6 +49,11 @@ rm -rf ~/.cache/nvim
 Then run the installation steps again.
 
 ---
+
+## Example of deployment
+
+<img src="etc/ui.png" alt="uiimage" width="650"/>
+
 
 ## Plugins
 
