@@ -1,15 +1,22 @@
 -- plugins/colorscheme.lua
 return {
-  "sainnhe/everforest",
+  "EdenEast/nightfox.nvim",
   lazy     = false,
   priority = 1000,
   config = function()
-    vim.g.everforest_background         = "hard"   -- "soft" | "medium" | "hard"
-    vim.g.everforest_better_performance = 1
-    vim.g.everforest_enable_italic      = 1
-    vim.g.everforest_diagnostic_text_highlight = 1
-    vim.g.everforest_sign_column_background    = "none"
-    vim.opt.background = "dark"  -- "dark" | "light"
-    vim.cmd("colorscheme everforest")
+    require("nightfox").setup({
+      options = {
+        transparent       = false,
+        terminal_colors   = true,
+        dim_inactive      = false,
+        styles = {
+          comments  = "italic",
+          keywords  = "italic",
+          functions = "NONE",
+          variables = "NONE",
+        },
+      },
+    })
+    vim.cmd("colorscheme nightfox")
   end,
 }
