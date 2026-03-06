@@ -6,7 +6,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       options = {
-        theme                = "tokyonight",
+        theme                = "everforest",
         globalstatus         = true,
         component_separators = { left = "", right = "" },
         section_separators   = { left = "", right = "" },
@@ -43,7 +43,9 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter.configs").setup({
+      local ok, configs = pcall(require, "nvim-treesitter.configs")
+      if not ok then return end
+      configs.setup({
         ensure_installed = {
           "lua", "vim", "vimdoc",
           "javascript", "typescript", "tsx",
