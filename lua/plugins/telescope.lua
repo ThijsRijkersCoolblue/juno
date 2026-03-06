@@ -4,7 +4,6 @@ return {
   tag = "0.1.8",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    -- native FZF sorter for much faster fuzzy matching
     {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
@@ -12,21 +11,25 @@ return {
         return vim.fn.executable("make") == 1
       end,
     },
-    -- shows file icons in results
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
+    -- Compatibility fix: ft_to_lang was removed in newer Neovim
+    if vim.treesitter.language and not vim.treesitter.language.ft_to_lang then
+      vim.treesitter.language.ft_to_lang = function(ft) return ft end
+    end
+
     local telescope = require("telescope")
     local actions   = require("telescope.actions")
 
     telescope.setup({
       defaults = {
-        prompt_prefix   = " 🔍 ",
-        selection_caret = " ❯ ",
-        path_display    = { "truncate" },
+        prompt_prefix    = " 🔍 ",
+        selection_caret  = " ❯ ",
+        path_display     = { "truncate" },
         sorting_strategy = "ascending",
         preview = {
-          treesitter = false,  -- disable ts previewer (ft_to_lang compat fix)
+          treesitter = false,
         },
         layout_config = {
           horizontal = {
@@ -44,7 +47,6 @@ return {
             ["<Esc>"] = actions.close,
           },
         },
-        -- Respect .gitignore by default; still search hidden files
         file_ignore_patterns = { "node_modules", ".git/", "dist/", "build/" },
         vimgrep_arguments = {
           "rg", "--color=never", "--no-heading",
@@ -55,7 +57,7 @@ return {
       },
       pickers = {
         find_files = {
-          hidden      = true,
+          hidden       = true,
           find_command = { "rg", "--files", "--hidden", "--glob=!.git/" },
         },
         live_grep = {
@@ -63,8 +65,11 @@ return {
             return { "--hidden" }
           end,
         },
+        current_buffer_fuzzy_find = {
+          previewer = false,  -- avoids ft_to_lang on buffer search
+        },
         buffers = {
-          sort_lastused     = true,
+          sort_lastused         = true,
           ignore_current_buffer = true,
         },
       },
@@ -78,7 +83,6 @@ return {
       },
     })
 
-    -- Load extensions if available
     pcall(telescope.load_extension, "fzf")
   end,
 }
