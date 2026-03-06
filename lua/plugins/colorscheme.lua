@@ -1,15 +1,14 @@
 -- plugins/colorscheme.lua
 return {
-  "sainnhe/everforest",
+  "shaunsingh/nord.nvim",
   lazy     = false,
   priority = 1000,
   config = function()
-    vim.g.everforest_background         = "medium"   -- "soft" | "medium" | "hard"
-    vim.g.everforest_better_performance = 1
-    vim.g.everforest_enable_italic      = 1
-    vim.g.everforest_diagnostic_text_highlight = 1
-    vim.g.everforest_sign_column_background    = "none"
-    vim.opt.background = "dark"
-    vim.cmd("colorscheme everforest")
+    vim.g.nord_contrast             = true
+    vim.g.nord_borders              = false
+    vim.g.nord_disable_background   = false
+    vim.g.nord_italic               = true
+    vim.g.nord_bold                 = true
+    vim.cmd("colorscheme nord")
   end,
 }
