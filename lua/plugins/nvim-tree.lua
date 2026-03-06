@@ -17,10 +17,10 @@ return {
         group_empty = true,
         icons = {
           show = {
-            file        = true,
-            folder      = true,
+            file        = false,
+            folder      = false,
             folder_arrow = true,
-            git         = true,
+            git         = false,
           },
         },
       },
