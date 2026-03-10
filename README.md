@@ -10,8 +10,6 @@ Before installing, make sure you have the following installed:
 - **Git**
 - **Ripgrep** — used for live grep search inside files
 
-### LSP Setup
-
 This configuration includes LSP support for Go, JavaScript and TypeScript.
 
 **Go & JavaScript & TypeScript**
