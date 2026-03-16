@@ -62,3 +62,12 @@ Space is the leader key.
 | `Space lf` | Format file |
 
 ---
+
+### Guild
+| Key | Action |
+|---|---|
+| `Space gg` | Toggle guild |
+| `Ctrl q` | Hide guild window (keeps session alive) |
+| `Ctrl c` | Quit guild |
+---
+ 
